@@ -1,1 +1,11 @@
-(()=>{const number="573184895898";const message=encodeURIComponent("Hola, quiero consultar disponibilidad, precio e información de las Píldoras para crecer de tamaño de FARMASUEÑOS.");document.querySelectorAll(".wa").forEach(a=>{a.href="https://wa.me/"+number+"?text="+message;a.target="_blank";a.rel="noopener noreferrer"});const main=document.getElementById("main-photo");document.querySelectorAll(".thumb").forEach(b=>b.addEventListener("click",()=>{main.src=b.dataset.src;main.alt=b.querySelector("img").alt;document.querySelectorAll(".thumb").forEach(x=>x.classList.remove("active"));b.classList.add("active")}));document.getElementById("year").textContent=new Date().getFullYear()})();
+(()=>{const number="573184895898";const message=encodeURIComponent("Hola, quiero consultar disponibilidad, precio e información de las Píldoras para crecer de tamaño de FARMASUEÑOS.");document.querySelectorAll(".wa").forEach(a=>{a.href="https://wa.me/"+number+"?text="+message;a.target="_blank";a.rel="noopener noreferrer"});const main=document.getElementById("main-photo");document.querySelectorAll(".thumb").forEach(b=>b.addEventListener("click",()=>{main.src=b.dataset.src;main.alt=b.querySelector("img").alt;document.querySelectorAll(".thumb").forEach(x=>x.classList.remove("active"));b.classList.add("active")}));document.getElementById("year").textContent=new Date().getFullYear();
+// Los navegadores solo permiten un aviso de salida nativo y normalmente exigen interacción previa.
+let visitorInteracted=false;
+const markInteraction=()=>{visitorInteracted=true};
+window.addEventListener("pointerdown",markInteraction,{once:true});
+window.addEventListener("keydown",markInteraction,{once:true});
+window.addEventListener("beforeunload",(event)=>{
+  if(!visitorInteracted)return;
+  event.preventDefault();
+  event.returnValue="";
+})})();
